@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import ProductPage from "./components/ProductPage";
@@ -5,9 +6,11 @@ import logo from "./logo.svg";
 
 function App() {
 
-  let obj = {
-    quantity: 0
-  };
+  const [quantity, setQuantity] = useState(0);
+
+  const updateQuantity = (newQuantity) => {
+    setQuantity(newQuantity)
+  }
 
   return (
     <div>
@@ -27,9 +30,9 @@ function App() {
           menuContainer.classList.add("w-0");
         }}
       ></div>
-      <Navbar obj={obj} />
-      <div className="max-w-7xl mx-auto p-6">
-        <ProductPage obj={obj} />
+      <Navbar quantity={quantity} updateQuantity={updateQuantity} />
+      <div className="flex flex-col gap-16 max-w-7xl mx-auto p-6">
+        <ProductPage quantity={quantity} updateQuantity={updateQuantity} />
         <Contact />
       </div>
     </div>

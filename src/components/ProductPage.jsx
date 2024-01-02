@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProductPage = (props) => {
+const ProductPage = ({quantity, updateQuantity}) => {
   const [images, setImages] = useState({
     img1: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/5d780ab4-8114-4778-a011-e2d1cbf63ff5/invincible-3-mens-road-running-shoes-4xHjXL.png",
     img2: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/invincible-3-mens-road-running-shoes-4xHjXL.png",
@@ -10,7 +10,7 @@ const ProductPage = (props) => {
 
   const [activeImg, setActiveImg] = useState(images.img1);
   const [amount, setAmount] = useState(1);
-  let quantity = props.quantity;
+  
 
   return (
     <div
@@ -58,7 +58,7 @@ const ProductPage = (props) => {
             >
               <div id="cart-item" className="flex justify-between">
               <span>
-                Nike Invincible 3 <b>x</b> {quantity} = ${quantity * 199}.00
+                Nike Invincible <b>x</b> {quantity} = ${quantity * 190}.00
               </span>
               <div
                 className=""
@@ -69,6 +69,8 @@ const ProductPage = (props) => {
 
                   cartEmpty.classList.remove('hidden');
                   cartItem.classList.add('hidden');
+
+                  updateQuantity(0);
                 }}
               >
                 <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -86,9 +88,13 @@ const ProductPage = (props) => {
                 id="checkout"
                 onClick={() => {
                   const cart = document.getElementById("cart-card");
+                  const overlay = document.getElementById('overlay');
 
-                  obj.quantity = 0;
+                  updateQuantity(0);
                   cart.classList.add("hidden");
+                  overlay.classList.add('hidden');
+
+                  alert('Order recieved!')
                 }}
               >
                 Checkout
@@ -176,6 +182,7 @@ const ProductPage = (props) => {
               className="bg-gray-200 rounded-lg text-violet-600 text-xl font-bold px-6 py-2"
               onClick={() => {
                 setAmount(amount + 1);
+                console.log(quantity, amount)
               }}
             >
               +
@@ -186,13 +193,16 @@ const ProductPage = (props) => {
           <button
             className="bg-gray-700 rounded-md font-semibold text-white py-2 flex-1 hover:bg-gray-500"
             onClick={() => {
-              const cartItem = document.getElementById("cart-item-con");
-              const cartEmpty = document.getElementById("empty");
+              // const cartItem = document.getElementById("cart-item-con");
+              // const cartEmpty = document.getElementById("empty");
 
-              cartEmpty.classList.add("hidden");
-              cartItem.classList.remove("hidden");
-              cartItem.classList.add("flex");
-             quantity = quantity + amount
+              // cartEmpty.classList.add("hidden");
+              // cartItem.classList.remove("hidden");
+              // cartItem.classList.add("flex");
+            // 
+           
+            updateQuantity(amount + quantity);
+            setAmount(1);
             }}
           >
             Add to Cart

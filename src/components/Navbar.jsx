@@ -1,7 +1,7 @@
 import React from "react";
 
-const Navbar = (props) => {
-  let quantity = props.quantity;
+const Navbar = ({quantity, updateQuantity}) => {
+  
   return (
     <div>
       <div
@@ -54,14 +54,14 @@ const Navbar = (props) => {
           <div className="bg-white h-1 w-6 sm:w-4 rounded-sm"></div>
         </div>
         <div id="logo" className="sm:hidden md:block">
-          <span className="text-xl font-bold italic uppercase">y-oes!</span>
+          <span className="text-xl font-bold italic uppercase">hyshoes!</span>
         </div>
         <div className="menu-items flex gap-10">
-          <a href="#" className="no-underline">
-            <span>shop</span>
+          <a href="#" className="relative no-underline active-section">
+            shop
           </a>
-          <a href="#" className="no-underline">
-            <span>contact</span>
+          <a href="#" className="relative no-underline">
+            contact
           </a>
         </div>
         <div
