@@ -94,7 +94,6 @@ const ProductPage = ({quantity, updateQuantity, scrollToSection, id}) => {
                   cart.classList.add("hidden");
                   overlay.classList.add('hidden');
 
-                  alert('Order recieved!')
                 }}
               >
                 Checkout
