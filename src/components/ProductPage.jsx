@@ -56,7 +56,7 @@ const ProductPage = ({quantity, updateQuantity}) => {
               className="flex flex-col w-full gap-10 p-5 font-semibold"
               id="cart-item-con"
             >
-              <div id="cart-item" className="flex justify-between">
+              <div id="cart-item" className="flex justify-between items-center">
               <span>
                 Nike Invincible <b>x</b> {quantity} = ${quantity * 190}.00
               </span>
@@ -182,7 +182,6 @@ const ProductPage = ({quantity, updateQuantity}) => {
               className="bg-gray-200 rounded-lg text-violet-600 text-xl font-bold px-6 py-2"
               onClick={() => {
                 setAmount(amount + 1);
-                console.log(quantity, amount)
               }}
             >
               +

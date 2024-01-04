@@ -1,7 +1,6 @@
 import React from "react";
 
-const Navbar = ({quantity, updateQuantity}) => {
-  
+const Navbar = ({ quantity, updateQuantity }) => {
   return (
     <div>
       <div
@@ -9,7 +8,7 @@ const Navbar = ({quantity, updateQuantity}) => {
         id="menu-container"
       >
         <div className="hidden p-5" id="menu-content">
-          <header className="flex items-end">
+          <header className="flex items-end mb-10">
             <div
               className="cursor-pointer"
               id="close-btn"
@@ -33,6 +32,14 @@ const Navbar = ({quantity, updateQuantity}) => {
               </svg>
             </div>
           </header>
+          <div className="flex flex-col gap-5">
+            <a href="#" className="relative no-underline">
+              shop
+            </a>
+            <a href="#" className="relative no-underline">
+              contact
+            </a>
+          </div>
         </div>
       </div>
       <nav className="fixed bg-violet-600 text-white font-semibold px-14 py-5 sm:px-8 lg:px-24 z-10 w-full flex justify-between items-center">
@@ -70,20 +77,20 @@ const Navbar = ({quantity, updateQuantity}) => {
           onClick={() => {
             const cart = document.getElementById("cart-card");
             const overlay = document.getElementById("overlay");
-            const cartEmpty = document.getElementById('empty');
-            const cartItemCon = document.getElementById('cart-item-con');
+            const cartEmpty = document.getElementById("empty");
+            const cartItemCon = document.getElementById("cart-item-con");
 
             cart.classList.toggle("hidden");
             overlay.classList.toggle("hidden");
 
             if (quantity > 0) {
-              cartEmpty.classList.add('hidden');
-              cartItemCon.classList.add('flex');
-              cartItemCon.classList.remove('hidden');
+              cartEmpty.classList.add("hidden");
+              cartItemCon.classList.add("flex");
+              cartItemCon.classList.remove("hidden");
             } else {
-              cartEmpty.classList.remove('hidden');
-              cartItemCon.classList.remove('flex');
-              cartItemCon.classList.add('hidden');
+              cartEmpty.classList.remove("hidden");
+              cartItemCon.classList.remove("flex");
+              cartItemCon.classList.add("hidden");
             }
           }}
         >
