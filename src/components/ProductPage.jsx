@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProductPage = ({quantity, updateQuantity}) => {
+const ProductPage = ({quantity, updateQuantity, scrollToSection, id}) => {
   const [images, setImages] = useState({
     img1: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/5d780ab4-8114-4778-a011-e2d1cbf63ff5/invincible-3-mens-road-running-shoes-4xHjXL.png",
     img2: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/invincible-3-mens-road-running-shoes-4xHjXL.png",
@@ -15,7 +15,7 @@ const ProductPage = ({quantity, updateQuantity}) => {
   return (
     <div
       className="flex relative flex-col justify-between gap-16 lg:flex-row mt-16"
-      id="shop"
+      id={id}
     >
       {/* Cart card */}
       <div
@@ -192,14 +192,9 @@ const ProductPage = ({quantity, updateQuantity}) => {
           <button
             className="bg-gray-700 rounded-md font-semibold text-white py-2 flex-1 hover:bg-gray-500"
             onClick={() => {
-              // const cartItem = document.getElementById("cart-item-con");
-              // const cartEmpty = document.getElementById("empty");
+            const notification = document.getElementById('notification');
 
-              // cartEmpty.classList.add("hidden");
-              // cartItem.classList.remove("hidden");
-              // cartItem.classList.add("flex");
-            // 
-           
+            notification.classList.remove('hidden');
             updateQuantity(amount + quantity);
             setAmount(1);
             }}

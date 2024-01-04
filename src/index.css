@@ -36,3 +36,7 @@ code {
   left: 10%;
   bottom: -5px;
 }
+
+.anchor {
+  cursor: pointer;
+}

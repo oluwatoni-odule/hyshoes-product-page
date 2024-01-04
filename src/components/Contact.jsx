@@ -1,8 +1,8 @@
 import React from "react";
 
-const Contact = () => {
+const Contact = ({ scrollToSection, id}) => {
   return (
-    <div className="flex flex-col gap-10 items-center">
+    <div className="flex flex-col gap-10 items-center" id={id}>
       <h1 className="font-bold md:text-3xl sm:text-xl">You can reach us here:</h1>
 
       <div className="flex flex-col gap-5 items-center">

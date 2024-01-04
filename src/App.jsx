@@ -12,6 +12,17 @@ function App() {
     setQuantity(newQuantity)
   }
 
+  const scrollToSection = (sectionId) => {
+    const sectionRef = document.getElementById(sectionId);
+    
+    if (sectionRef) {
+      sectionRef.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  };
+
   return (
     <div>
       <div
@@ -30,10 +41,10 @@ function App() {
           menuContainer.classList.add("w-0");
         }}
       ></div>
-      <Navbar quantity={quantity} updateQuantity={updateQuantity} />
+      <Navbar quantity={quantity} updateQuantity={updateQuantity} scrollToSection={scrollToSection} />
       <div className="flex flex-col gap-16 max-w-7xl mx-auto p-6">
-        <ProductPage quantity={quantity} updateQuantity={updateQuantity} />
-        <Contact />
+        <ProductPage quantity={quantity} updateQuantity={updateQuantity} id="section-1" scrollToSection={scrollToSection} />
+        <Contact id="section-2" scrollToSection={scrollToSection} />
       </div>
     </div>
   );
